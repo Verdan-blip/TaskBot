@@ -13,7 +13,7 @@ public class TaskBotApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(TaskBotApplication.class.getResource("task_bot.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskBotApplication.class.getResource("fxml/task_bot.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
 
         stage.setTitle(APPLICATION_TITLE);

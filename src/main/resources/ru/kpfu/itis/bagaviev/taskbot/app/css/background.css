@@ -1,0 +1,6 @@
+#anchor {
+    -fx-background-image: url("../img/background.png");
+    -fx-background-position: center center;
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat no-repeat;
+}

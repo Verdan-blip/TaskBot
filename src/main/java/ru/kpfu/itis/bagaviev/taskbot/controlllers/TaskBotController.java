@@ -1,19 +1,19 @@
 package ru.kpfu.itis.bagaviev.taskbot.controlllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import ru.kpfu.itis.bagaviev.taskbot.app.ChatApplication;
-import ru.kpfu.itis.bagaviev.taskbot.chat.views.UserConfigView;
+import ru.kpfu.itis.bagaviev.taskbot.app.GameApplication;
 import ru.kpfu.itis.bagaviev.taskbot.exchange_rate.ExchangeRateInfo;
 import ru.kpfu.itis.bagaviev.taskbot.exchange_rate.ExchangeRateService;
 import ru.kpfu.itis.bagaviev.taskbot.weather.WeatherInfo;
 import ru.kpfu.itis.bagaviev.taskbot.weather.WeatherService;
 
-public class Controller {
+import java.io.IOException;
+
+public class TaskBotController {
 
     @FXML
     private TextField tfCommand;
@@ -22,7 +22,7 @@ public class Controller {
     private TextArea taChat;
 
     @FXML
-    public void onRunButtonClick() {
+    public void onRunButtonClick() throws Exception {
         String text = tfCommand.getText();
         if (text.startsWith("/weather")) {
             String city = text.split("\\s+")[1];
@@ -52,6 +52,9 @@ public class Controller {
         } else if (text.startsWith("/chat")) {
             ChatApplication chatApplication = new ChatApplication();
             chatApplication.startChat();
+        } else if (text.startsWith("/game")) {
+            GameApplication gameApplication = new GameApplication();
+            gameApplication.start(new Stage());
         }
         taChat.appendText("<---------------------------->\n");
     }
